@@ -30,6 +30,7 @@ sha1sum pRsm.dll
 
 ### Task 3: Which malware framework utilizes these DLLs as add-on modules?
 I entered the hash into VirusTotal. Using the extracted SHA1 hash revealed that there was a malicious plugin linked to the APT group Evasive Panda.
+Furthermore, searching online for the prsm[.]dll plugin lead me to a website WeLiveSecurity where the associated framework was given.
 * **Answer:** `MgBot`
 
 ### Task 4: Which MITRE ATT&CK technique controls the audio hook functionality?
