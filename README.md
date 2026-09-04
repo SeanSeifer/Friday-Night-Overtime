@@ -62,6 +62,6 @@ Enforce SSL/TLS Inspection: Decrypt and inspect outbound HTTPS traffic to look f
 Monitor Service & Registry Auditing: MgBot often achieves persistence by installing malicious Windows Services or modifying Run registry keys.
 Configure advanced auditing to log changes to:HKLM\SYSTEM\CurrentControlSet\ServicesHKCU\Software\Microsoft\Windows\CurrentVersion\Run3.
 
-## 3.Endpoint Behavioral Detection (EDR)Monitor Process Injection: Set up your Endpoint Detection and Response (EDR) tool to alert on legitimate system processes (like explorer.exe or svchost.exe) spawning unusual network connections.
+### 3.Endpoint Behavioral Detection (EDR)Monitor Process Injection: Set up your Endpoint Detection and Response (EDR) tool to alert on legitimate system processes (like explorer.exe or svchost.exe) spawning unusual network connections.
 Audit Audio Device Access: Since the malware utilizes an audio hook (T1123), create behavioral rules to flag non-communication applications (like untrusted background DLLs) requesting access to system recording devices or microphones.
 ---
