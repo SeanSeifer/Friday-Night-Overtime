@@ -50,19 +50,18 @@ Going to VirusTotal and searching for 122.10.90.12 in the Relations tab lead me 
 * **Answer:** `951F41930489A8BFE963FCED5D8DFD79`
 
 ---
-
 ##  Key Takeaways & Defense Mitigation
 This project showed me how to safely extract and analyze malware in  a controlled environment. It also gave me practice in investigating malware using various frameworks and tools like virustotal and MITREattack for discovery and mitigation purposes.
 
 Defensive Recommendations:
-1. Implement Strict Network DefensesBlock the Malicious Infrastructure: Immediately sinkhole the C2 IP 122.10.90.12 and block traffic to *.browser.qq.com at your firewall and proxy layers.
+### 1. Implement Strict Network Defenses Block the Malicious Infrastructure: Immediately sinkhole the C2 IP 122.10.90.12 and block traffic to *.browser.qq.com at your firewall and proxy layers.
 Implement DNS Filtering: Use protective DNS filtering to identify and block lookalike or newly registered domains used for staging payloads.
 Enforce SSL/TLS Inspection: Decrypt and inspect outbound HTTPS traffic to look for anomalous user-agent strings or beaconing patterns tied to C2 channels.
 
-2. Restrict DLL & Execution EnvironmentsEnforce Application Whitelisting: Use tools like AppLocker or Windows Defender Application Control (WDAC) to block unauthorized .dll files from executing out of user-writable directories (like C:\Users\...\Downloads or \AppData).
+### 2. Restrict DLL & Execution EnvironmentsEnforce Application Whitelisting: Use tools like AppLocker or Windows Defender Application Control (WDAC) to block unauthorized .dll files from executing out of user-writable directories (like C:\Users\...\Downloads or \AppData).
 Monitor Service & Registry Auditing: MgBot often achieves persistence by installing malicious Windows Services or modifying Run registry keys.
 Configure advanced auditing to log changes to:HKLM\SYSTEM\CurrentControlSet\ServicesHKCU\Software\Microsoft\Windows\CurrentVersion\Run3.
 
-3.Endpoint Behavioral Detection (EDR)Monitor Process Injection: Set up your Endpoint Detection and Response (EDR) tool to alert on legitimate system processes (like explorer.exe or svchost.exe) spawning unusual network connections.
+## 3.Endpoint Behavioral Detection (EDR)Monitor Process Injection: Set up your Endpoint Detection and Response (EDR) tool to alert on legitimate system processes (like explorer.exe or svchost.exe) spawning unusual network connections.
 Audit Audio Device Access: Since the malware utilizes an audio hook (T1123), create behavioral rules to flag non-communication applications (like untrusted background DLLs) requesting access to system recording devices or microphones.
 ---
